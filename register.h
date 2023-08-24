@@ -4,8 +4,6 @@
 #include "vector"
 #include "QDate"
 
-static int progressiveNumber=0;
-
 class Register
 {
 public:
@@ -14,7 +12,6 @@ public:
     Register& operator=(const Register& that){
         activities=that.activities;
         registerDate=that.registerDate;
-        number=that.number;
         return*this;
     }
 
@@ -23,9 +20,6 @@ public:
     void createActivity(Activity& something);
     QString readScheduledActivities();
 
-    int getNumber(){
-        return number;
-    }
 
     int getYear(){
         return registerDate.year();
@@ -42,7 +36,6 @@ public:
 private:
     std::vector<Activity> activities;
     QDate registerDate;
-    int number;
 };
 
 #endif // REGISTER_H

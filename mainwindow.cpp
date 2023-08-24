@@ -38,13 +38,16 @@ void MainWindow::slotUpdateRegister(){
 void MainWindow::on_readActivity_clicked(){
 
     connect(ui->dateSelector,SIGNAL(activated(int)),this,SLOT(changeSelectedRegister()));
-    QString txtprint;
+    /*QString txtprint;
     txtprint=registers[ui->dateSelector->currentIndex()].readScheduledActivities();
-    ui->outputText->insertPlainText(txtprint);
+    ui->outputText->insertPlainText(txtprint);*/
 }
 
 void MainWindow::changeSelectedRegister(){
     ui->outputText->clear();
+    QString txtprint;
+    txtprint=registers[ui->dateSelector->currentIndex()].readScheduledActivities();
+    ui->outputText->insertPlainText(txtprint);
 }
 
 
@@ -75,14 +78,22 @@ void MainWindow::on_pushButton_clicked()
             registers.insert(it,*(it-1));
         }
         it=registers.begin();
+    }
+    }else{
+        registers.push_back(newregister);
         for(int i=0;i!=provindex;i++){
             it++;
         }
          registers.insert(it,newregister);
-    }
-    }else{
-        registers.push_back(newregister);
     }*/
+    for(it=registers.begin();it!=registers.end();it++){
+        if(((it)->getYear()==newregister.getYear())&&((it)->getMonth()==newregister.getMonth())&&((it)->getDay()==newregister.getDay())){
+            std::cerr<<"This register is already existent"<<std::endl;
+            return;
+        }
+    }
+
+
     registers.push_back(newregister);
 
     std::sort(registers.begin(),registers.end());
@@ -94,14 +105,16 @@ void MainWindow::on_pushButton_clicked()
     }
 
 
-    qDebug()<<"You have created a new register, number is"<<newregister.getNumber();
+    qDebug()<<"You have created a new register";
     QString registerDescr=QString::number(ui->inputDate->date().day())+"/"+
             QString::number(ui->inputDate->date().month())+"/"+
             QString::number(ui->inputDate->date().year());
     ui->dateSelector->insertItem(provindex,registerDescr);
     //ui->dateSelector->addItem(registerDescr);
+        }
 
-}
+
+
 
 
 void MainWindow::on_cleanBoard_clicked()

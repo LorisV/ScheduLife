@@ -3,8 +3,8 @@
 Register::Register(int year,int month,int day)
 {
     registerDate.setDate(year,month,day);
-    number=progressiveNumber;
-    progressiveNumber=progressiveNumber+1;
+    /*number=progressiveNumber;
+    progressiveNumber=progressiveNumber+1;*/
 }
 
 void Register::createActivity(Activity& something){
