@@ -38,9 +38,9 @@ void MainWindow::slotUpdateRegister(){
 void MainWindow::on_readActivity_clicked(){
 
     connect(ui->dateSelector,SIGNAL(activated(int)),this,SLOT(changeSelectedRegister()));
-    /*QString txtprint;
+    QString txtprint;
     txtprint=registers[ui->dateSelector->currentIndex()].readScheduledActivities();
-    ui->outputText->insertPlainText(txtprint);*/
+    ui->outputText->insertPlainText(txtprint);
 }
 
 void MainWindow::changeSelectedRegister(){
@@ -59,43 +59,15 @@ void MainWindow::on_pushButton_clicked()
     int provindex=0;
     bool posfound=false;
     std::vector<Register>::iterator it;
-    /*it=registers.begin();
-    if(it!=registers.end()){
-    while(it!=registers.end()){
-        qDebug()<<"CycleEntered";
-        if((it->getYear()<newregister.getYear())||((it->getYear()==newregister.getYear())&&(it->getMonth()<newregister.getMonth()))||
-           ((it->getYear()==newregister.getYear())&&(it->getMonth()==newregister.getMonth())&&(it->getDay()<newregister.getDay()))){
-            it++;
-        }
-        else if (!posfound){
-            qDebug()<<"option4";
-            provindex=it-registers.begin();
-            posfound=true;
-            it++;
-        } else{
-            qDebug()<<"option5";
-            registers.resize(registers.size()+1);
-            registers.insert(it,*(it-1));
-        }
-        it=registers.begin();
-    }
-    }else{
-        registers.push_back(newregister);
-        for(int i=0;i!=provindex;i++){
-            it++;
-        }
-         registers.insert(it,newregister);
-    }*/
-    for(it=registers.begin();it!=registers.end();it++){
-        if(((it)->getYear()==newregister.getYear())&&((it)->getMonth()==newregister.getMonth())&&((it)->getDay()==newregister.getDay())){
-            std::cerr<<"This register is already existent"<<std::endl;
-            return;
-        }
-    }
 
+        for(it=registers.begin();it!=registers.end();it++){
+            if(((it)->getYear()==newregister.getYear())&&((it)->getMonth()==newregister.getMonth())&&((it)->getDay()==newregister.getDay())){
+                std::cerr<<"This register is already existent"<<std::endl;
+                   return;
+            }
+        }
 
     registers.push_back(newregister);
-
     std::sort(registers.begin(),registers.end());
 
     for(it=registers.begin();it!=registers.end();it++){
@@ -110,8 +82,7 @@ void MainWindow::on_pushButton_clicked()
             QString::number(ui->inputDate->date().month())+"/"+
             QString::number(ui->inputDate->date().year());
     ui->dateSelector->insertItem(provindex,registerDescr);
-    //ui->dateSelector->addItem(registerDescr);
-        }
+}
 
 
 

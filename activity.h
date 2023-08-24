@@ -10,6 +10,8 @@ public:
 
     QString readActivity() const;
 
+    bool operator<(const Activity& that);
+
     const std::string &getDescription() const;
 
     void setDescription(const std::string &description);

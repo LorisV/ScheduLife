@@ -1,10 +1,10 @@
 #include "register.h"
+#include "algorithm"
+#include "activity.h"
 
 Register::Register(int year,int month,int day)
 {
     registerDate.setDate(year,month,day);
-    /*number=progressiveNumber;
-    progressiveNumber=progressiveNumber+1;*/
 }
 
 void Register::createActivity(Activity& something){
@@ -12,11 +12,14 @@ void Register::createActivity(Activity& something){
 }
 
 QString Register::readScheduledActivities(){
+
+    std::sort(activities.begin(),activities.end());
     QString temptxt;
     for(auto& activity:activities){
         temptxt=temptxt+"\n"+activity.readActivity();
     }
-     return temptxt;
+    qDebug()<<temptxt;
+    return temptxt;
 }
 
 bool Register::operator<(const Register& that){
