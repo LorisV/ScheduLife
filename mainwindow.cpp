@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "register.h"
 #include "algorithm"
+#include "QMessageBox"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,9 +19,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_buttonNewActivity_clicked()
 {
+    if(registers.empty()){
+        QMessageBox::critical(this,"Error","Create a day to schedule before");
+    }
+    else{
     addActWindowptr=new AddActivity(this);
     addActWindowptr->show();
     connect(addActWindowptr,&AddActivity::isClosed,this,&MainWindow::slotUpdateRegister);
+    }
 }
 
 void MainWindow::slotUpdateRegister(){
@@ -60,12 +66,12 @@ void MainWindow::on_pushButton_clicked()
     bool posfound=false;
     std::vector<Register>::iterator it;
 
-        for(it=registers.begin();it!=registers.end();it++){
-            if(((it)->getYear()==newregister.getYear())&&((it)->getMonth()==newregister.getMonth())&&((it)->getDay()==newregister.getDay())){
-                std::cerr<<"This register is already existent"<<std::endl;
-                   return;
-            }
-        }
+    for(it=registers.begin();it!=registers.end();it++){
+        if(((it)->getYear()==newregister.getYear())&&((it)->getMonth()==newregister.getMonth())&&((it)->getDay()==newregister.getDay())){
+            QMessageBox::critical(this,"Warning","This register is already existent");
+            return;
+         }
+     }
 
     registers.push_back(newregister);
     std::sort(registers.begin(),registers.end());
@@ -83,9 +89,6 @@ void MainWindow::on_pushButton_clicked()
             QString::number(ui->inputDate->date().year());
     ui->dateSelector->insertItem(provindex,registerDescr);
 }
-
-
-
 
 
 void MainWindow::on_cleanBoard_clicked()

@@ -1,6 +1,7 @@
 #include "register.h"
 #include "algorithm"
 #include "activity.h"
+#include "QMessageBox"
 
 Register::Register(int year,int month,int day)
 {
@@ -8,6 +9,17 @@ Register::Register(int year,int month,int day)
 }
 
 void Register::createActivity(Activity& something){
+    for(auto& activity:activities){
+        if((activity.getDescription()==something.getDescription())&&
+           (activity.getStartHh()==something.getStartHh())&&
+           (activity.getStartMm()==something.getStartMm())&&
+           (activity.getEndHh()==something.getEndHh())&&
+           (activity.getEndMm()==something.getEndMm())){
+            QMessageBox::warning(nullptr,"Conflict","The written activity is already registered");
+            qDebug()<<"Already registered";
+            return;
+        }
+    }
     activities.push_back(something);
 }
 
