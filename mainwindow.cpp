@@ -24,6 +24,7 @@ void MainWindow::on_buttonNewActivity_clicked()
     }
     else{
     addActWindowptr=new AddActivity(this);
+    addActWindowptr->setWindowTitle("Add an Activity");
     addActWindowptr->show();
     connect(addActWindowptr,&AddActivity::isClosed,this,&MainWindow::slotUpdateRegister);
     }

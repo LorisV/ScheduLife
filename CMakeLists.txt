@@ -26,6 +26,7 @@ set(PROJECT_SOURCES
         addactivity.ui
         register.cpp
         register.h
+        AppImages.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

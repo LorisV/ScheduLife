@@ -10,6 +10,104 @@
     <height>437</height>
    </rect>
   </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>160</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>160</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>145</green>
+        <blue>77</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>240</red>
+        <green>240</green>
+        <blue>240</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>120</red>
+        <green>120</green>
+        <blue>120</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>120</red>
+        <green>120</green>
+        <blue>120</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>145</green>
+        <blue>77</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="font">
+   <font>
+    <family>Verdana</family>
+    <pointsize>10</pointsize>
+    <italic>true</italic>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -17,10 +115,10 @@
    <widget class="QPushButton" name="buttonNewActivity">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>210</y>
-      <width>111</width>
-      <height>41</height>
+      <x>60</x>
+      <y>160</y>
+      <width>141</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -30,11 +128,56 @@
    <widget class="QPlainTextEdit" name="outputText">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>200</y>
+      <x>310</x>
+      <y>170</y>
       <width>181</width>
       <height>181</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>160</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -43,10 +186,10 @@
    <widget class="QPushButton" name="readActivity">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>280</y>
-      <width>111</width>
-      <height>41</height>
+      <x>60</x>
+      <y>230</y>
+      <width>141</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -56,8 +199,8 @@
    <widget class="QDateEdit" name="inputDate">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>80</y>
+      <x>280</x>
+      <y>40</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -66,11 +209,19 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>80</y>
-      <width>141</width>
-      <height>31</height>
+      <x>70</x>
+      <y>40</y>
+      <width>201</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>11</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Select day to schedule</string>
@@ -79,9 +230,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>120</y>
-      <width>81</width>
+      <x>220</x>
+      <y>90</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -92,8 +243,8 @@
    <widget class="QComboBox" name="dateSelector">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>180</y>
+      <x>340</x>
+      <y>140</y>
       <width>111</width>
       <height>22</height>
      </rect>
@@ -102,32 +253,16 @@
    <widget class="QPushButton" name="cleanBoard">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>330</y>
-      <width>111</width>
-      <height>41</height>
+      <x>60</x>
+      <y>300</y>
+      <width>141</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Clean board</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>530</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuScheduLife">
-    <property name="title">
-     <string>ScheduLife</string>
-    </property>
-   </widget>
-   <addaction name="menuScheduLife"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
