@@ -27,6 +27,9 @@ set(PROJECT_SOURCES
         register.cpp
         register.h
         AppImages.qrc
+        removeactivity.h
+        removeactivity.cpp
+        removeactivity.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

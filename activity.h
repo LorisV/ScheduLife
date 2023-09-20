@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "QString"
+#include "QTime"
 
 class Activity {
 public:

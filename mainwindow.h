@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "addactivity.h"
+#include "removeactivity.h"
 #include "register.h"
 #include "vector"
 
@@ -27,14 +28,17 @@ private slots:
 
     void on_cleanBoard_clicked();
 
+    void on_buttonRemoveActivity_clicked();
+
 public slots:
-    void slotUpdateRegister();
+    void slotUpdateRegisterAdd();
 
     void changeSelectedRegister();
 
 private:
     Ui::MainWindow *ui;
     AddActivity*addActWindowptr;
+    removeActivity*removeActWindowptr;
     std::vector<Register> registers;
 };
 #endif // MAINWINDOW_H

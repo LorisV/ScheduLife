@@ -54,7 +54,11 @@ void Activity::setEndMm(short endMm) {
 }
 
 QString Activity::readActivity() const {
-    QString txtActivity=QString::fromStdString(description)+" from "+QString::number(startHh)+
-            ":"+QString::number(startMm)+" to "+ QString::number(endHh)+":"+QString::number(endMm);
+    QTime startTime(startHh,startMm,0,0);
+    QTime endTime(endHh,endMm,0,0);
+    QString startDisplay = startTime.toString("hh:mm");
+    QString endDisplay = endTime.toString("hh:mm");
+    QString txtActivity=QString::fromStdString(description)+" from "+ startDisplay+ " to "+endDisplay;
+
     return txtActivity;
 }

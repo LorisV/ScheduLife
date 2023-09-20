@@ -187,7 +187,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>230</y>
+      <y>280</y>
       <width>141</width>
       <height>51</height>
      </rect>
@@ -254,13 +254,26 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>300</y>
+      <y>340</y>
       <width>141</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Clean board</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonRemoveActivity">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>220</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Remove an activity</string>
     </property>
    </widget>
   </widget>

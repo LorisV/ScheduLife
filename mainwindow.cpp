@@ -17,6 +17,8 @@ MainWindow::~MainWindow()
 }
 
 
+// Addition of a new activity
+
 void MainWindow::on_buttonNewActivity_clicked()
 {
     if(registers.empty()){
@@ -26,11 +28,11 @@ void MainWindow::on_buttonNewActivity_clicked()
     addActWindowptr=new AddActivity(this);
     addActWindowptr->setWindowTitle("Add an Activity");
     addActWindowptr->show();
-    connect(addActWindowptr,&AddActivity::isClosed,this,&MainWindow::slotUpdateRegister);
+    connect(addActWindowptr,&AddActivity::isClosed,this,&MainWindow::slotUpdateRegisterAdd);
     }
 }
 
-void MainWindow::slotUpdateRegister(){
+void MainWindow::slotUpdateRegisterAdd(){
 
     if(addActWindowptr->isNew()){
     registers[ui->dateSelector->currentIndex()].createActivity(*addActWindowptr->getActivity());
@@ -39,8 +41,7 @@ void MainWindow::slotUpdateRegister(){
 }
 
 
-
-
+//Activities reading from button and from day selection
 
 void MainWindow::on_readActivity_clicked(){
 
@@ -50,6 +51,8 @@ void MainWindow::on_readActivity_clicked(){
     ui->outputText->insertPlainText(txtprint);
 }
 
+//
+
 void MainWindow::changeSelectedRegister(){
     ui->outputText->clear();
     QString txtprint;
@@ -58,7 +61,7 @@ void MainWindow::changeSelectedRegister(){
 }
 
 
-
+//New register creation
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -91,9 +94,21 @@ void MainWindow::on_pushButton_clicked()
     ui->dateSelector->insertItem(provindex,registerDescr);
 }
 
+//Output cleaning
 
 void MainWindow::on_cleanBoard_clicked()
 {
     ui->outputText->clear();
+}
+
+
+//
+
+void MainWindow::on_buttonRemoveActivity_clicked()
+{
+    removeActWindowptr=new removeActivity(this);
+    removeActWindowptr->setWindowTitle("Remove an activity");
+    removeActWindowptr->show();
+
 }
 
